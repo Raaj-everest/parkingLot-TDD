@@ -1,6 +1,6 @@
-package com.everest.parking.vehicle.implementation.types;
+package com.everest.parking.vehicle.types;
 
-import com.everest.parking.vehicle.implementation.types.enums.VehicleType;
+import com.everest.parking.vehicle.types.enums.VehicleType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BikeTest {
+
     Bike bike;
 
     @BeforeEach
@@ -17,26 +18,26 @@ class BikeTest {
 
     @Test
     @DisplayName("Bike must be created")
-    void BikeCreated() {
+    void bikeCreated() {
         assertNotNull(bike, "bike object is created");
 
     }
 
     @Test
     @DisplayName("Bike colour must be matched")
-    void BikeColour() {
+    void bikeColour() {
         assertEquals(bike.getColourOfVehicle(), "RED", "bike colour matched");
     }
 
     @Test
     @DisplayName("Bike registrationNumber must be matched")
-    void BikeRegistrationNumber() {
+    void bikeRegistrationNumber() {
         assertEquals(bike.getRegistrationNumber(), "WA-KA-WA-KA", "bike registration number matched");
     }
 
     @Test
     @DisplayName("Bike must be a vehicle type")
-    void BikeTypeTest() {
+    void bikeTypeTest() {
         assertEquals(bike.getTypeOfVehicle(), VehicleType.BIKE.toString(), "bike is a vehicle type");
     }
 
