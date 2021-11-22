@@ -5,9 +5,9 @@ import com.everest.parking.vehicle.implementation.types.enums.VehicleType;
 
 public abstract class Vehicle implements DefaultVehicle {
 
-    private String registrationNumber;
-    private String colour;
-    private String typeOfVehicle;
+    private final String registrationNumber;
+    private final String colour;
+    private final String typeOfVehicle;
 
     public Vehicle(VehicleType typeOfVehicle, String registrationNumber, String colour) {
         this.registrationNumber = registrationNumber;
