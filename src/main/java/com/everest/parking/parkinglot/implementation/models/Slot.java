@@ -1,4 +1,4 @@
-package com.everest.parking.parkinglot;
+package com.everest.parking.parkinglot.models;
 
 import com.everest.parking.vehicle.Vehicle;
 

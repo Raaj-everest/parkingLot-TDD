@@ -1,8 +1,11 @@
-package com.everest.parking.parkinglot;
+package com.everest.parking.parkinglot.models;
+
+import com.everest.parking.parkinglot.models.Floor;
 
 public class ParkingLot {
 
-    private Floor[] floors;
+    private final Floor[] floors;
+
 
     public ParkingLot(int numberOfFloors, int numberOfSlotsPerFloor) {
         floors = new Floor[numberOfFloors];
@@ -14,4 +17,6 @@ public class ParkingLot {
     public Floor[] getFloors() {
         return floors;
     }
+
+
 }
