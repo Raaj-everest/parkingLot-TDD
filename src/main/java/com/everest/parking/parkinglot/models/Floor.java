@@ -1,7 +1,5 @@
 package com.everest.parking.parkinglot.models;
 
-import com.everest.parking.parkinglot.models.Slot;
-
 public class Floor {
 
     private final Slot[] slotsList;

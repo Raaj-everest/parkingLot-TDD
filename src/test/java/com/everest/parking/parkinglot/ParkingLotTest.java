@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingLotTest {
 
-    ParkingLot parkingLot1;
+ParkingLot parkingLot1;
 
     @BeforeEach
     void setParkingLot1() {
-        parkingLot1 = new ParkingLot(2, 6);
+        parkingLot1 = ParkingLot.createParkingLot("PR1234",2,6);
     }
 
     @Test
@@ -24,6 +24,15 @@ class ParkingLotTest {
         assertEquals(parkingLot1.getFloors()[0].getSlotsList().length,
                 6,
                 "number of slots in a floor should match");
+    }
+
+    @Test
+    void parkingIdTest(){
+        parkingLot1= parkingLot1.createParkingLot("PR1234",2,6);
+        String string1 = parkingLot1.getId();
+        String string2 = "PR1234";
+        assertEquals(string1,string2);
+
     }
 
 }

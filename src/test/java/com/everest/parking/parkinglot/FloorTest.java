@@ -1,9 +1,6 @@
 package com.everest.parking.parkinglot;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.everest.parking.parkinglot.models.Floor;
 
 class FloorTest {
 

@@ -1,5 +1,6 @@
 package com.everest.parking.parkinglot;
 
+import com.everest.parking.parkinglot.models.Slot;
 import com.everest.parking.vehicle.types.Car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
