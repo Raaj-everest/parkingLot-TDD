@@ -37,8 +37,7 @@ class ParkingLotTest {
         assertEquals(p.getAllFloorsInParkingArea()[1].getSlotsList()[4].getVehicleInSlot().getRegistrationNumber(), "v5");
 
         assertEquals(p.getAllFloorsInParkingArea()[1].getSlotsList()[5].getVehicleInSlot().getRegistrationNumber(), "v6");
-
-
+        p.unPark(0, 3);
+        assertNull(p.getAllFloorsInParkingArea()[0].getSlotsList()[3].getVehicleInSlot());
     }
-
 }

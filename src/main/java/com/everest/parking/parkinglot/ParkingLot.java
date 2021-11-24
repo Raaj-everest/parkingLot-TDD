@@ -48,6 +48,10 @@ public class ParkingLot extends ParkingArea {
         String ticket = getParkingLotId() + "_" + (a+1) + "_" + (b+1);
         System.out.println("parked Vehicle. ticket ID: " + ticket);
     }
+    public void unPark(int floorNumber, int slotNumber) {
+        getSpecificSLotInSpecificFloor(floorNumber, slotNumber).removeVehicleInSlot();
+    }
+
 
 
 
