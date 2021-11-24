@@ -14,7 +14,7 @@ class SlotTest {
 
     @BeforeEach
     void setUp(){
-        slot = new Slot (SlotType.MEDIUM);
+        slot = new Slot (SlotType.CAR);
         slot.parkVehicleInSlot(new Car("WA-KA-WA-KA","RED"));
     }
 

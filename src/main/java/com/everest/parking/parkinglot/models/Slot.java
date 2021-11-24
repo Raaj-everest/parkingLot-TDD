@@ -4,12 +4,12 @@ import com.everest.parking.parkinglot.models.enums.SlotType;
 import com.everest.parking.vehicle.Vehicle;
 
 public class Slot {
-    private final SlotType slotType ;
+    private final String slotType ;
     private boolean isOccupied;
     private Vehicle vehicleInSlot;
 
     public Slot(SlotType slotType) {
-        this.slotType=slotType;
+        this.slotType=slotType.toString();
     }
 
     public boolean getIsOccupied() {
@@ -26,13 +26,17 @@ public class Slot {
     }
 
     public void parkVehicleInSlot(Vehicle vehicle){
-        this.vehicleInSlot=vehicle;
-        this.isOccupied=true;
+        System.out.println("start");
+        if(slotType.equals(vehicle.getTypeOfVehicle())) {
+            System.out.println("enterd");
+            this.vehicleInSlot = vehicle;
+            this.isOccupied = true;
+        }
     }
 
 
 
-    public SlotType getSlotType() {
+    public String getSlotType() {
         return slotType;
     }
 }

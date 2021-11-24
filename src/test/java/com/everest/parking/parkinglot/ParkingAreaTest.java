@@ -12,27 +12,28 @@ ParkingArea parkingLot1;
 
     @BeforeEach
     void setParkingLot1() {
-        parkingLot1 = new ParkingArea("PR1234",2,6);
+        parkingLot1 = new ParkingArea(2,6);
     }
 
     @Test
     void getFloorTest(){
-        assertEquals(parkingLot1.getFloors().length,2,"number of floors should match");
+        assertEquals(parkingLot1.getAllFloorsInParkingArea().length,2,"number of floors should match");
     }
 
     @Test
     void numberOfSlotsTest(){
-        assertEquals(parkingLot1.getFloors()[0].getSlotsList().length,
+        assertEquals(parkingLot1.getAllSlotsInSpecificFloor(1).length,
                 6,
                 "number of slots in a floor should match");
     }
 
-    @Test
-    void parkingIdTest(){
-        String string1 = parkingLot1.getId();
-        String string2 = "PR1234";
-        assertEquals(string1,string2);
 
-    }
+//    @Test
+//    void parkingIdTest(){
+//        String string1 = parkingLot1.getId();
+//        String string2 = "PR1234";
+//        assertEquals(string1,string2);
+//
+//    }
 
 }

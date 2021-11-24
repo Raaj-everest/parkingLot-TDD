@@ -23,9 +23,9 @@ class FloorTest {
     }
     @Test
     void arrangeSlotsTest(){
-        assertEquals(floor.getSlotsList()[0].getSlotType(), SlotType.LARGE);
-        assertEquals(floor.getSlotsList()[1].getSlotType(), SlotType.SMALL);
-        assertEquals(floor.getSlotsList()[3].getSlotType(), SlotType.MEDIUM);
+        assertEquals(floor.getSlotsList()[0].getSlotType(), SlotType.TRUCK.toString());
+        assertEquals(floor.getSlotsList()[1].getSlotType(), SlotType.BIKE.toString());
+        assertEquals(floor.getSlotsList()[3].getSlotType(), SlotType.CAR.toString());
     }
 
 

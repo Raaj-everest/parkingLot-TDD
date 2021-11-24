@@ -22,27 +22,31 @@ public class Floor {
     }
 
     private void arrangeSlotsInOrder() {
-        makeSmallSLots();
-        makeMediumSlots();
-        makeLargeSlots();
+        makeBikeSLots();
+        makeCarSlots();
+        makeTruckSlots();
     }
 
-    private void makeSmallSLots() {
+    private void makeBikeSLots() {
         for (int i = 1; i < 3; i++) {
-            slotsList[i] = new Slot(SlotType.SMALL);
+            slotsList[i] = new Slot(SlotType.BIKE);
         }
     }
 
-    private void makeMediumSlots() {
+    private void makeCarSlots() {
         for (int i = 3; i < slotsList.length; i++) {
-            slotsList[i] = new Slot(SlotType.MEDIUM);
+            slotsList[i] = new Slot(SlotType.CAR);
         }
     }
 
-    private void makeLargeSlots() {
+    private void makeTruckSlots() {
         for (int i = 0; i < 1; i++) {
-            slotsList[i] = new Slot(SlotType.LARGE);
+            slotsList[i] = new Slot(SlotType.TRUCK);
         }
+    }
+
+    public Slot getSpecificSlotInTheFloor( int slotNumber) {
+        return slotsList[(slotNumber-1)];
     }
 
 }
