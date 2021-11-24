@@ -1,17 +1,18 @@
 package com.everest.parking.parkinglot;
 
+import com.everest.parking.parkinglot.models.ParkingArea;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ParkingLotAreaTest {
+class ParkingAreaTest {
 
-ParkingLotArea parkingLot1;
+ParkingArea parkingLot1;
 
     @BeforeEach
     void setParkingLot1() {
-        parkingLot1 = ParkingLotArea.createParkingLot("PR1234",2,6);
+        parkingLot1 = new ParkingArea("PR1234",2,6);
     }
 
     @Test
@@ -28,7 +29,6 @@ ParkingLotArea parkingLot1;
 
     @Test
     void parkingIdTest(){
-        parkingLot1= parkingLot1.createParkingLot("PR1234",2,6);
         String string1 = parkingLot1.getId();
         String string2 = "PR1234";
         assertEquals(string1,string2);
