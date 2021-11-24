@@ -34,11 +34,19 @@ public class ParkingLot extends ParkingArea {
             if(!slot.getIsOccupied()) {
                 slot.parkVehicleInSlot(vehicle);
                 if (slot.getIsOccupied()) {
-
+                    generateTicket(count);
                     return;
                 }
             }
         }
+    }
+
+
+    private void generateTicket(int counter) {
+        int a = (counter / (getNumberOfSlotsPerFloor()+1));
+        int b = (counter - ((counter / getNumberOfFloors()) * getNumberOfFloors()));
+        String ticket = getParkingLotId() + "_" + (a+1) + "_" + (b+1);
+        System.out.println("parked Vehicle. ticket ID: " + ticket);
     }
 
 
