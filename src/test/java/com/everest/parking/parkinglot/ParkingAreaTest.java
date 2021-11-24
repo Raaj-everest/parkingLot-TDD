@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ParkingLotTest {
+class ParkingLotAreaTest {
 
-ParkingLot parkingLot1;
+ParkingLotArea parkingLot1;
 
     @BeforeEach
     void setParkingLot1() {
-        parkingLot1 = ParkingLot.createParkingLot("PR1234",2,6);
+        parkingLot1 = ParkingLotArea.createParkingLot("PR1234",2,6);
     }
 
     @Test

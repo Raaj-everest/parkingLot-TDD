@@ -1,6 +1,7 @@
 package com.everest.parking.parkinglot;
 
 import com.everest.parking.parkinglot.models.Slot;
+import com.everest.parking.parkinglot.models.enums.SlotType;
 import com.everest.parking.vehicle.types.Car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,9 +13,11 @@ class SlotTest {
     Slot slot;
 
     @BeforeEach
-    void setSlot(){
-        slot = new Slot(new Car("WA-KA-WA-KA","RED"));
+    void setUp(){
+        slot = new Slot (SlotType.MEDIUM);
+        slot.parkVehicleInSlot(new Car("WA-KA-WA-KA","RED"));
     }
+
 
     @Test
     void getIsOccupiedTest(){

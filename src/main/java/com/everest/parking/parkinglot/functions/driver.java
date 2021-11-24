@@ -7,6 +7,10 @@ public class driver {
     public void park(VehicleType typeOfVehicle, String registrationNumber, String colour) {
 
     }
+    public void unPark(VehicleType typeOfVehicle, String registrationNumber, String colour) {
+
+    }
+
 }
 
 

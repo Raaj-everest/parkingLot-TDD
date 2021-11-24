@@ -1,6 +1,11 @@
 package com.everest.parking.parkinglot;
 
 import com.everest.parking.parkinglot.models.Floor;
+import com.everest.parking.parkinglot.models.enums.SlotType;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FloorTest {
 
@@ -12,6 +17,16 @@ class FloorTest {
 //        floor.addSlotsToFloor(2);
 //        assertEquals(floor.getSlotsList().length,8,"slots should be added");
 //    }
+    @BeforeEach
+    void setup(){
+        floor = new Floor(6);
+    }
+    @Test
+    void arrangeSlotsTest(){
+        assertEquals(floor.getSlotsList()[0].getSlotType(), SlotType.LARGE);
+        assertEquals(floor.getSlotsList()[1].getSlotType(), SlotType.SMALL);
+        assertEquals(floor.getSlotsList()[3].getSlotType(), SlotType.MEDIUM);
+    }
 
 
 }

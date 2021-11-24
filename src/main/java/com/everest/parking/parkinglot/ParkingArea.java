@@ -2,12 +2,12 @@ package com.everest.parking.parkinglot;
 
 import com.everest.parking.parkinglot.models.Floor;
 
-public class ParkingLot  {
+public class ParkingLotArea  {
     private final String id;
     private final Floor[] floors;
-    private static ParkingLot parkingLotInstance=null;
+    private static ParkingLotArea parkingLotInstance=null;
 
-    private ParkingLot(String id, int numberOfFloors, int numberOfSlotsPerFloor) {
+    private ParkingLotArea(String id, int numberOfFloors, int numberOfSlotsPerFloor) {
         this.id = id;
         floors = new Floor[numberOfFloors];
         for (int i = 0; i < numberOfFloors; i++) {
@@ -15,9 +15,9 @@ public class ParkingLot  {
         }
     }
 
-    public static ParkingLot createParkingLot(String parkingLotId, int numberOfFloors, int numberOfSlotsPerFloor) {
+    public static ParkingLotArea createParkingLot(String parkingLotId, int numberOfFloors, int numberOfSlotsPerFloor) {
         if (parkingLotInstance==null) {
-             parkingLotInstance = new ParkingLot(parkingLotId, numberOfFloors, numberOfSlotsPerFloor);
+             parkingLotInstance = new ParkingLotArea(parkingLotId, numberOfFloors, numberOfSlotsPerFloor);
         }
         return parkingLotInstance;
     }
