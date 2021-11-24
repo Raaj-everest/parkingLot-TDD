@@ -1,17 +1,17 @@
 package com.everest.parking.parkinglot;
 
-import com.everest.parking.parkinglot.models.Floor;
 import com.everest.parking.parkinglot.models.ParkingArea;
 import com.everest.parking.parkinglot.models.Slot;
 import com.everest.parking.vehicle.Vehicle;
 
-public class ParkingLot {
+import java.util.ArrayList;
+
+public class ParkingLot extends ParkingArea {
     public static ParkingLot parkingLotInstance = null;
-    private final ParkingArea parkingArea;
     private final String id;
 
     private ParkingLot(String id, int numberOfFloors, int numberOfSlotsPerFloor) {
-        parkingArea = new ParkingArea(numberOfFloors, numberOfSlotsPerFloor);
+        super(numberOfFloors, numberOfSlotsPerFloor);
         this.id = id;
     }
 
@@ -22,32 +22,26 @@ public class ParkingLot {
         return parkingLotInstance;
     }
 
-
-    public String getId() {
+    private String getParkingLotId() {
         return id;
     }
 
     public void park(Vehicle vehicle) {
-        Floor[] floor = parkingArea.getAllFloorsInParkingArea();
-          for(int i =0;i< floor.length;i++){
-            Slot[] slot= floor[i].getSlotsList();
-             for(int j=0;j<slot.length;j++){
-                 slot[j].parkVehicleInSlot(vehicle);
-                 if(slot[j].getIsOccupied()){
-                     return ;
-                 }
-             }
-          }
+        int count = 0;
+        ArrayList<Slot> allSlots = getAllSlotsInAllFloors();
+        for (Slot slot : allSlots) {
+            count++;
+            if(!slot.getIsOccupied()) {
+                slot.parkVehicleInSlot(vehicle);
+                if (slot.getIsOccupied()) {
+
+                    return;
+                }
+            }
+        }
     }
-     private void getSlotsInAllFloors(Slot[] slot,Vehicle vehicle){
-         for(int j=0;j<slot.length;j++){
-             slot[j].parkVehicleInSlot(vehicle);
-             if(slot[j].getIsOccupied()){
-                 return ;
-             }
-         }
-     }
-    public ParkingArea getParkingArea() {
-        return parkingArea;
-    }
+
+
+
+
 }

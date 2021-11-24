@@ -18,6 +18,6 @@ public class App {
 //        Slot slot3=new Slot(SlotType.CAR);
 //        slot3.parkVehicleInSlot(new Car("EGRWGETH","WHITE"));
 //        System.out.println(slot3.getVehicleInSlot().getRegistrationNumber());
-        System.out.println(p.getParkingArea().getAllFloorsInParkingArea()[0].getSlotsList()[3].getVehicleInSlot().getRegistrationNumber());
+        System.out.println(p.getAllFloorsInParkingArea()[0].getSlotsList()[3].getVehicleInSlot().getRegistrationNumber());
     }
 }
