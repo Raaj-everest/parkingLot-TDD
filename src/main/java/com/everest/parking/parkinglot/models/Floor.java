@@ -45,8 +45,8 @@ public class Floor {
         }
     }
 
-    public Slot getSpecificSlotInTheFloor( int slotNumber) {
-        return slotsList[(slotNumber-1)];
+    public Slot getSpecificSlotInTheFloor(int slotNumber) {
+        return slotsList[(slotNumber - 1)];
     }
 
 }

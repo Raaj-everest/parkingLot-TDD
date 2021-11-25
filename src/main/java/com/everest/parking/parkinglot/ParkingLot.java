@@ -35,7 +35,7 @@ public class ParkingLot extends ParkingArea {
             if (!slot.getIsOccupied()) {
                 slot.parkVehicleInSlot(vehicle);
                 if (slot.getIsOccupied()) {
-                    Ticket.generateTicket(count,parkingLotInstance);
+                    Ticket.print(count,parkingLotInstance);
                     return;
                 }
             }
