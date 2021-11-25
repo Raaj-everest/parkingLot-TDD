@@ -1,5 +1,6 @@
 package com.everest.parking.parkinglot;
 
+import com.everest.parking.parkinglot.functions.Ticket;
 import com.everest.parking.parkinglot.models.ParkingArea;
 import com.everest.parking.parkinglot.models.Slot;
 import com.everest.parking.vehicle.Vehicle;
@@ -22,7 +23,7 @@ public class ParkingLot extends ParkingArea {
         return parkingLotInstance;
     }
 
-    private String getParkingLotId() {
+    public String getParkingLotId() {
         return id;
     }
 
@@ -34,23 +35,15 @@ public class ParkingLot extends ParkingArea {
             if (!slot.getIsOccupied()) {
                 slot.parkVehicleInSlot(vehicle);
                 if (slot.getIsOccupied()) {
-                    generateTicket(count);
+                    Ticket.generateTicket(count,parkingLotInstance);
                     return;
                 }
             }
         }
     }
 
-    private void generateTicket(int counter) {
-        int floorNumber = ((counter - 1) / (getNumberOfSlotsPerFloor() + 1));
-        int slotNumber = ((counter - 1) - (floorNumber * getNumberOfSlotsPerFloor()));
-        String ticket = getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber + 1);
-        System.out.println("parked Vehicle. ticket ID: " + ticket);
-    }
-
     public void unPark(int floorNumber, int slotNumber) {
         getSpecificSLotInSpecificFloor(floorNumber, slotNumber).removeVehicleInSlot();
     }
-
 
 }

@@ -17,7 +17,6 @@ public class ParkingArea {
         }
     }
 
-
     public Floor[] getAllFloorsInParkingArea() {
         return floors;
     }

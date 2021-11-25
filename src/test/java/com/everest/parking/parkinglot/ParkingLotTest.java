@@ -1,5 +1,6 @@
 package com.everest.parking.parkinglot;
 
+import com.everest.parking.vehicle.types.Bike;
 import com.everest.parking.vehicle.types.Car;
 import com.everest.parking.vehicle.types.Truck;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,6 +57,10 @@ class ParkingLotTest {
     void UnParkTest(){
         p1.park(new Car("v1", "colour"));
         p1.park(new Truck("v6", "colour"));
+        p1.park(new Bike("v6", "colour"));
+        p1.park(new Bike("v6", "colour"));
+        p1.park(new Bike("v6", "colour"));
+        p1.park(new Bike("v6", "colour"));
         p1.unPark(1, 4);
         p1.unPark(1,1);
 
