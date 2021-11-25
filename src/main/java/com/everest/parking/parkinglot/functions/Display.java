@@ -36,7 +36,7 @@ public class Display {
                 }
             }
             System.out.print("No. of free slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " :");
-            printSlotNumber(freeSlots);
+            printSlotNumbers(freeSlots);
             freeSlots.clear();
         }
     }
@@ -52,12 +52,12 @@ public class Display {
                 }
             }
             System.out.print("No. of occupied slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " : ");
-            printSlotNumber(occupiedSLots);
+            printSlotNumbers(occupiedSLots);
             occupiedSLots.clear();
         }
     }
 
-    private static void printSlotNumber(List<Integer> slots) {
+    private static void printSlotNumbers(List<Integer> slots) {
         for (int l = 0; l < slots.size(); l++) {
             System.out.print(slots.get(l));
             if (l != (slots.size() - 1)) {

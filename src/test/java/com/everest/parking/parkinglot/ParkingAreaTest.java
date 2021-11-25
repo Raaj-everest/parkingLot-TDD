@@ -27,13 +27,4 @@ ParkingArea parkingLot1;
                 "number of slots in a floor should match");
     }
 
-
-//    @Test
-//    void parkingIdTest(){
-//        String string1 = parkingLot1.getId();
-//        String string2 = "PR1234";
-//        assertEquals(string1,string2);
-//
-//    }
-
 }
