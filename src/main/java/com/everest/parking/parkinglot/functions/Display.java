@@ -7,24 +7,23 @@ import com.everest.parking.vehicle.types.enums.VehicleType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Display {
-    static int freeCount(ParkingLot parkingLot, VehicleType vehicleType) {
+    static void freeCount(ParkingLot parkingLot, VehicleType vehicleType) {
         int counter = 0;
         Floor[] floors = parkingLot.getAllFloorsInParkingArea();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
-            for (int j = 0; j < slots.length; j++) {
-                if ((slots[j].getSlotType() == vehicleType.toString()) && !slots[j].getIsOccupied()) {
+            for (Slot slot : slots) {
+                if ((Objects.equals(slot.getSlotType(), vehicleType.toString())) && !slot.getIsOccupied()) {
                     counter += 1;
                 }
             }
             System.out.println("No. of free slots for " + vehicleType.toString() + " on Floor " + i + " : " + counter);
             counter = 0;
         }
-        return counter;
     }
-
 
     static void freeSlots(ParkingLot parkingLot, VehicleType vehicleType) {
         Floor[] floors = parkingLot.getAllFloorsInParkingArea();
@@ -32,38 +31,35 @@ public class Display {
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
             for (int j = 0; j < slots.length; j++) {
-                if ((slots[j].getSlotType() == vehicleType.toString()) && !slots[j].getIsOccupied()) {
+                if ((Objects.equals(slots[j].getSlotType(), vehicleType.toString())) && !slots[j].getIsOccupied()) {
                     freeSlots.add(j + 1);
                 }
             }
-            System.out.print("No. of free slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " :" );
+            System.out.print("No. of free slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " :");
             printSlotNumber(freeSlots);
             freeSlots.clear();
         }
-        return;
-
     }
 
     static void occupiedSlots(ParkingLot parkingLot, VehicleType vehicleType) {
         Floor[] floors = parkingLot.getAllFloorsInParkingArea();
-        List<Integer> freeSlots = new ArrayList<>();
+        List<Integer> occupiedSLots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
             for (int j = 0; j < slots.length; j++) {
-                if ((slots[j].getSlotType() == vehicleType.toString()) && slots[j].getIsOccupied()) {
-                    freeSlots.add(j + 1);
+                if ((Objects.equals(slots[j].getSlotType(), vehicleType.toString())) && slots[j].getIsOccupied()) {
+                    occupiedSLots.add(j + 1);
                 }
             }
-            System.out.print("No. of free slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " : "  );
-            printSlotNumber(freeSlots);
-            freeSlots.clear();
+            System.out.print("No. of occupied slots for " + vehicleType.toString() + " on Floor " + (i + 1) + " : ");
+            printSlotNumber(occupiedSLots);
+            occupiedSLots.clear();
         }
-        return;
     }
 
     private static void printSlotNumber(List<Integer> slots) {
         for (int l = 0; l < slots.size(); l++) {
-            System.out.print( slots.get(l));
+            System.out.print(slots.get(l));
             if (l != (slots.size() - 1)) {
                 System.out.print(",");
             }

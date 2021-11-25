@@ -6,10 +6,10 @@ public class Ticket {
 
     private static String generateTicket(int counter, ParkingLot parkingLot) {
 
-        int floorNumber = ((counter) / (parkingLot.getNumberOfSlotsPerFloor()));
-        int slotNumber = ((counter) - (floorNumber * parkingLot.getNumberOfSlotsPerFloor()));
+        int floorNumber = ((counter-1) / (parkingLot.getNumberOfSlotsPerFloor()));
+        int slotNumber = ((counter-1) - (floorNumber * parkingLot.getNumberOfSlotsPerFloor()));
 
-        String ticket = parkingLot.getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber + 1);
+        String ticket = parkingLot.getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber+1);
         return "parked Vehicle. ticket ID: " + ticket;
     }
 
