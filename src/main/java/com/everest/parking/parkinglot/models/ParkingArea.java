@@ -23,28 +23,28 @@ public class ParkingArea {
     }
 
     public Slot[] getAllSlotsInSpecificFloor(int floorNumber) {
-        return getAllFloorsInParkingArea()[(floorNumber)].getSlotsList();
+        return getAllFloorsInParkingArea()[(floorNumber - 1)].getSlotsList();
     }
 
-   public Slot getSpecificSLotInSpecificFloor(int floorNumber,int slotNumber){
-        return getAllSlotsInSpecificFloor(floorNumber)[(slotNumber)];
-   }
+    public Slot getSpecificSLotInSpecificFloor(int floorNumber, int slotNumber) {
+        return getAllFloorsInParkingArea()[floorNumber - 1].getSpecificSlotInTheFloor(slotNumber);
+    }
 
     public ArrayList<Slot> getAllSlotsInAllFloors() {
         ArrayList<Slot> allSlots = new ArrayList<>();
         for (Floor floor : floors) {
             Slot[] slot = floor.getSlotsList();
-             for(int j=0;j<slot.length;j++){
-                 allSlots.add(slot[j]);
-             }
+            Collections.addAll(allSlots, slot);
         }
         return allSlots;
     }
-    public int getNumberOfFloors(){
+
+    public int getNumberOfFloors() {
         return floors.length;
     }
-    public int getNumberOfSlotsPerFloor(){
-        return getAllSlotsInSpecificFloor(0).length;
+
+    public int getNumberOfSlotsPerFloor() {
+        return getAllSlotsInSpecificFloor(1).length;
     }
 
 }

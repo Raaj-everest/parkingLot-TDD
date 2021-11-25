@@ -31,7 +31,7 @@ public class ParkingLot extends ParkingArea {
         ArrayList<Slot> allSlots = getAllSlotsInAllFloors();
         for (Slot slot : allSlots) {
             count++;
-            if(!slot.getIsOccupied()) {
+            if (!slot.getIsOccupied()) {
                 slot.parkVehicleInSlot(vehicle);
                 if (slot.getIsOccupied()) {
                     generateTicket(count);
@@ -41,19 +41,16 @@ public class ParkingLot extends ParkingArea {
         }
     }
 
-
     private void generateTicket(int counter) {
-        int a = (counter / (getNumberOfSlotsPerFloor()+1));
-        int b = (counter - ((counter / getNumberOfFloors()) * getNumberOfFloors()));
-        String ticket = getParkingLotId() + "_" + (a+1) + "_" + (b+1);
+        int floorNumber = ((counter - 1) / (getNumberOfSlotsPerFloor() + 1));
+        int slotNumber = ((counter - 1) - (floorNumber * getNumberOfSlotsPerFloor()));
+        String ticket = getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber + 1);
         System.out.println("parked Vehicle. ticket ID: " + ticket);
     }
+
     public void unPark(int floorNumber, int slotNumber) {
         getSpecificSLotInSpecificFloor(floorNumber, slotNumber).removeVehicleInSlot();
     }
-
-
-
 
 
 }
