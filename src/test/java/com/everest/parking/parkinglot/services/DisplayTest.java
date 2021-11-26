@@ -1,7 +1,7 @@
 package com.everest.parking.parkinglot.services;
 
 import com.everest.parking.parkinglot.ParkingLot;
-import com.everest.parking.parkinglot.models.DisplayType;
+import com.everest.parking.parkinglot.models.enums.DisplayType;
 import com.everest.parking.vehicle.types.Car;
 import com.everest.parking.vehicle.types.Truck;
 import com.everest.parking.vehicle.types.enums.VehicleType;
