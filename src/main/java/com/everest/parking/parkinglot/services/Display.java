@@ -1,4 +1,4 @@
-package com.everest.parking.parkinglot.functions;
+package com.everest.parking.parkinglot.services;
 
 import com.everest.parking.parkinglot.models.Floor;
 import com.everest.parking.parkinglot.models.Slot;

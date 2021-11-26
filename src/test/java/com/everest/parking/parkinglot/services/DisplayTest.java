@@ -1,4 +1,4 @@
-package com.everest.parking.parkinglot.functions;
+package com.everest.parking.parkinglot.services;
 
 import com.everest.parking.parkinglot.ParkingLot;
 import com.everest.parking.vehicle.types.Car;
@@ -6,8 +6,6 @@ import com.everest.parking.vehicle.types.Truck;
 import com.everest.parking.vehicle.types.enums.VehicleType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static com.everest.parking.parkinglot.functions.Display.*;
 
 class DisplayTest {
 
@@ -22,14 +20,13 @@ class DisplayTest {
     void freeCountTest(){
         p.park(new Car("WA-KA","RED"));
         p.park(new Truck("WA-KA","RED"));
-        p.getDisplay().freeCount( VehicleType.CAR, p.getAllFloorsInParkingArea());
-        p.getDisplay().freeCount(VehicleType.TRUCK,p.getAllFloorsInParkingArea());
+        p.display( DisplayType.FREE_COUNT,VehicleType.CAR);
+        p.display(DisplayType.FREE_SLOTS,VehicleType.TRUCK);
     }
 
     @Test
     void freeSlotTest(){
-        p.getDisplay().freeSlots(VehicleType.CAR, p.getAllFloorsInParkingArea());
-
+        p.display(DisplayType.FREE_SLOTS,VehicleType.CAR);
     }
     @Test
     void occupiedSlotTest(){
@@ -38,8 +35,8 @@ class DisplayTest {
         p.park(new Car("Raaj","white"));
         p.park(new Car("Raaj","white"));
         p.park(new Truck("WEGRG","RED"));
-        p.getDisplay().occupiedSlots(VehicleType.CAR, p.getAllFloorsInParkingArea());
-        p.getDisplay().occupiedSlots(VehicleType.TRUCK,p.getAllFloorsInParkingArea());
+        p.display(DisplayType.OCCUPIED_SLOTS,VehicleType.CAR);
+        p.display(DisplayType.OCCUPIED_SLOTS,VehicleType.TRUCK);
 
     }
 

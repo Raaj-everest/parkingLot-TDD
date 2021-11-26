@@ -1,13 +1,12 @@
 package com.everest.parking.parkinglot;
 
-import com.everest.parking.parkinglot.functions.Display;
-import com.everest.parking.parkinglot.functions.Driver;
-import com.everest.parking.parkinglot.functions.Ticket;
+import com.everest.parking.parkinglot.services.*;
 import com.everest.parking.parkinglot.models.ParkingArea;
 import com.everest.parking.vehicle.Vehicle;
+import com.everest.parking.vehicle.types.enums.VehicleType;
 
 public class ParkingLot extends ParkingArea {
-    public static ParkingLot parkingLotInstance = null;
+    public static ParkingLot parkingLotInstance;
     private static Display display;
     private static Ticket ticket;
     private static Driver driver;
@@ -40,8 +39,16 @@ public class ParkingLot extends ParkingArea {
         driver.unParkVehicle(getSpecificSLotInSpecificFloor(floorNumber, slotNumber));
     }
 
-    public Display getDisplay() {
-        return display;
+    public void display(DisplayType displayType, VehicleType vehicleType) {
+        if (displayType == DisplayType.FREE_COUNT) {
+            display.freeCount(vehicleType, getAllFloorsInParkingArea());
+        }
+        if (displayType == DisplayType.FREE_SLOTS) {
+            display.freeSlots(vehicleType, getAllFloorsInParkingArea());
+        }
+        if (displayType == DisplayType.OCCUPIED_SLOTS) {
+            display.occupiedSlots(vehicleType, getAllFloorsInParkingArea());
+        }
     }
 
     public String getParkingLotId() {

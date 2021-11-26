@@ -1,4 +1,4 @@
-package com.everest.parking.parkinglot.functions;
+package com.everest.parking.parkinglot.services;
 
 public class Ticket {
 

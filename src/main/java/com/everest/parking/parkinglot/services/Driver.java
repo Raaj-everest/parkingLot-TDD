@@ -1,10 +1,8 @@
-package com.everest.parking.parkinglot.functions;
+package com.everest.parking.parkinglot.services;
 
-import com.everest.parking.parkinglot.ParkingLot;
 import com.everest.parking.parkinglot.models.Slot;
 import com.everest.parking.vehicle.Vehicle;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Driver {
