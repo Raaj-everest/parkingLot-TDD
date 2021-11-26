@@ -1,7 +1,6 @@
 package com.everest.parking.parkinglot.services;
 
-import com.everest.parking.parkinglot.models.Floor;
-import com.everest.parking.parkinglot.models.Slot;
+import com.everest.parking.parkinglot.models.*;
 import com.everest.parking.vehicle.types.enums.VehicleType;
 
 import java.util.ArrayList;
@@ -10,10 +9,6 @@ import java.util.Objects;
 
 public class Display {
 
-
-    public Display() {
-
-    }
 
     public void freeCount(VehicleType vehicleType, Floor[] floors) {
         int counter = 0;

@@ -3,7 +3,7 @@ package com.everest.parking.parkinglot.models;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class ParkingArea {
+public class ParkingArea {
     private final Floor[] floors;
 
     public ParkingArea(int numberOfFloors, int numberOfSlotsPerFloor) {
