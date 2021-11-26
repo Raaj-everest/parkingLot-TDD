@@ -10,21 +10,21 @@ class ParkingAreaTest {
 
 ParkingArea parkingLot1;
 
-    @BeforeEach
-    void setParkingLot1() {
-        parkingLot1 = new ParkingArea(2,6);
-    }
+//    @BeforeEach
+//    void setParkingLot1() {
+//        parkingLot1 = new ParkingArea(2,6);
+//    }
 
-    @Test
-    void getFloorTest(){
-        assertEquals(parkingLot1.getAllFloorsInParkingArea().length,2,"number of floors should match");
-    }
-
-    @Test
-    void numberOfSlotsTest(){
-        assertEquals(parkingLot1.getAllSlotsInSpecificFloor(1).length,
-                6,
-                "number of slots in a floor should match");
-    }
+//    @Test
+//    void getFloorTest(){
+//        assertEquals(parkingLot1.getAllFloorsInParkingArea().length,2,"number of floors should match");
+//    }
+//
+//    @Test
+//    void numberOfSlotsTest(){
+//        assertEquals(parkingLot1.getAllSlotsInSpecificFloor(1).length,
+//                6,
+//                "number of slots in a floor should match");
+//    }
 
 }

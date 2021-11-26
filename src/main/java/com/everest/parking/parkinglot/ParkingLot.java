@@ -21,9 +21,9 @@ public class ParkingLot extends ParkingArea {
     public static ParkingLot createParkingLot(String id, int numberOfFloors, int numberOfSlotsPerFloor) {
         if (parkingLotInstance == null) {
             parkingLotInstance = new ParkingLot(id, numberOfFloors, numberOfSlotsPerFloor);
-            driver = new Driver(parkingLotInstance);
+            driver = new Driver();
             display = new Display(parkingLotInstance);
-            ticket = new Ticket(parkingLotInstance);
+            ticket = new Ticket();
             System.out.println("Created parking lot with " + numberOfFloors + " floors and " + numberOfSlotsPerFloor + " slots per floor");
         }
         return parkingLotInstance;
@@ -31,14 +31,15 @@ public class ParkingLot extends ParkingArea {
 
 
     public void park(Vehicle vehicle) {
-        driver.parkVehicle(vehicle);
+       int[] place = driver.parkVehicle(vehicle,getAllSlotsInAllFloors(),getNumberOfSlotsPerFloor());
+       ticket.print(place,getParkingLotId(),getNumberOfSlotsPerFloor(),getNumberOfFloors());
     }
 
     public void unPark(int floorNumber, int slotNumber) {
-        driver.unParkVehicle(floorNumber, slotNumber);
+        driver.unParkVehicle(getSpecificSLotInSpecificFloor(floorNumber,slotNumber));
     }
 
-    public Display getDisplay() {
+    public Display getDisplay(Display) {
         return display;
     }
 
@@ -46,7 +47,4 @@ public class ParkingLot extends ParkingArea {
         return id;
     }
 
-    public Ticket getTicket() {
-        return ticket;
-    }
 }
