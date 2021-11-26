@@ -3,18 +3,18 @@ package com.everest.parking.parkinglot.functions;
 import com.everest.parking.parkinglot.ParkingLot;
 
 public class Ticket {
+    private ParkingLot parkingLot;
 
-    private static String generateTicket(int counter, ParkingLot parkingLot) {
-
-        int floorNumber = ((counter-1) / (parkingLot.getNumberOfSlotsPerFloor()));
-        int slotNumber = ((counter-1) - (floorNumber * parkingLot.getNumberOfSlotsPerFloor()));
-
-        String ticket = parkingLot.getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber+1);
-        return "parked Vehicle. ticket ID: " + ticket;
+    public Ticket(ParkingLot parkingLot){
+        this.parkingLot=parkingLot;
     }
 
-    public static void print(int Count, ParkingLot parkingLot) {
-
-        System.out.println(Ticket.generateTicket(Count, parkingLot));
+    public void print(int counter) {
+        int floorNumber = ((counter-1) / (this.parkingLot.getNumberOfSlotsPerFloor()));
+        int slotNumber = ((counter-1) - (floorNumber * this.parkingLot.getNumberOfSlotsPerFloor()));
+         String ticket = (this.parkingLot.getParkingLotId() + "_" + (floorNumber + 1) + "_" + (slotNumber+1));
+        System.out.println("Parked vehicle. Ticket ID: " + ticket);
     }
+
+
 }

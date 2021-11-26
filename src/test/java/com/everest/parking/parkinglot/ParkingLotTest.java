@@ -6,22 +6,16 @@ import com.everest.parking.vehicle.types.Truck;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.ParameterizedType;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ParkingLotTest {
-    ParkingLot p1;
 
-    @BeforeEach
-    void SetUp(){
-         p1 = ParkingLot.createParkingLot("PR1234", 2, 6);
-    }
+ParkingLot p1 = ParkingLot.createParkingLot("PR1234",2,6);
 
-    @Test
-    void singletonCheck() {
-        ParkingLot p2 = ParkingLot.createParkingLot("PR3276", 2, 6);
-        assertEquals(p1, p2);
-    }
+
 
     @Test
     void ParkTesting() {
@@ -33,6 +27,7 @@ class ParkingLotTest {
         p1.park(new Car("v5", "colour"));
         p1.park(new Car("v6", "colour"));
         p1.park(new Truck("v6", "colour"));
+        p1.park(new Car("v4", "colour"));
 
         assertEquals(p1.getSpecificSLotInSpecificFloor(1,4).getVehicleInSlot().getRegistrationNumber(), "v1");
 
@@ -55,6 +50,8 @@ class ParkingLotTest {
 
     @Test
     void UnParkTest(){
+        ParkingLot p1 = ParkingLot.createParkingLot("PR1234", 2, 6);
+
         p1.park(new Car("v1", "colour"));
         p1.park(new Truck("v6", "colour"));
         p1.park(new Bike("v6", "colour"));
@@ -62,6 +59,7 @@ class ParkingLotTest {
         p1.park(new Bike("v6", "colour"));
         p1.park(new Bike("v6", "colour"));
         p1.unPark(1, 4);
+        p1.unPark(1,1);
         p1.unPark(1,1);
 
         assertNull(p1.getSpecificSLotInSpecificFloor(1,4).getVehicleInSlot());

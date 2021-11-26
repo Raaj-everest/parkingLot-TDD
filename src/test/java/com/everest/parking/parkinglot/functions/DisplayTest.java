@@ -11,7 +11,7 @@ import static com.everest.parking.parkinglot.functions.Display.*;
 
 class DisplayTest {
 
-    ParkingLot p=ParkingLot.createParkingLot("PR1234",2,6);
+    ParkingLot p= ParkingLot.createParkingLot("PR1234",2,6);
 
     @BeforeEach
     void setup(){
@@ -22,13 +22,13 @@ class DisplayTest {
     void freeCountTest(){
         p.park(new Car("WA-KA","RED"));
         p.park(new Truck("WA-KA","RED"));
-        Display.freeCount(p, VehicleType.CAR);
-        Display.freeCount(p, VehicleType.TRUCK);
+        p.getDisplay().freeCount( VehicleType.CAR);
+        p.getDisplay().freeCount(VehicleType.TRUCK);
     }
 
     @Test
     void freeSlotTest(){
-        freeSlots(p,VehicleType.CAR);
+        p.getDisplay().freeSlots(VehicleType.CAR);
 
     }
     @Test
@@ -38,8 +38,8 @@ class DisplayTest {
         p.park(new Car("Raaj","white"));
         p.park(new Car("Raaj","white"));
         p.park(new Truck("WEGRG","RED"));
-        occupiedSlots(p,VehicleType.CAR);
-        occupiedSlots(p,VehicleType.TRUCK);
+        p.getDisplay().occupiedSlots(p,VehicleType.CAR);
+        p.getDisplay().occupiedSlots(p,VehicleType.TRUCK);
 
     }
 

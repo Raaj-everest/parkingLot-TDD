@@ -10,9 +10,16 @@ import java.util.List;
 import java.util.Objects;
 
 public class Display {
-    static void freeCount(ParkingLot parkingLot, VehicleType vehicleType) {
+
+    private final ParkingLot parkingLot;
+
+    public Display(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
+    public void freeCount(VehicleType vehicleType) {
         int counter = 0;
-        Floor[] floors = parkingLot.getAllFloorsInParkingArea();
+        Floor[] floors = this.parkingLot.getAllFloorsInParkingArea();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
             for (Slot slot : slots) {
@@ -25,8 +32,8 @@ public class Display {
         }
     }
 
-    static void freeSlots(ParkingLot parkingLot, VehicleType vehicleType) {
-        Floor[] floors = parkingLot.getAllFloorsInParkingArea();
+    public void freeSlots(VehicleType vehicleType) {
+        Floor[] floors = this.parkingLot.getAllFloorsInParkingArea();
         List<Integer> freeSlots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
@@ -41,7 +48,7 @@ public class Display {
         }
     }
 
-    static void occupiedSlots(ParkingLot parkingLot, VehicleType vehicleType) {
+    public void occupiedSlots(ParkingLot parkingLot, VehicleType vehicleType) {
         Floor[] floors = parkingLot.getAllFloorsInParkingArea();
         List<Integer> occupiedSLots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
@@ -57,7 +64,7 @@ public class Display {
         }
     }
 
-    private static void printSlotNumbers(List<Integer> slots) {
+    private void printSlotNumbers(List<Integer> slots) {
         for (int l = 0; l < slots.size(); l++) {
             System.out.print(slots.get(l));
             if (l != (slots.size() - 1)) {
