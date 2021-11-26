@@ -22,13 +22,13 @@ class DisplayTest {
     void freeCountTest(){
         p.park(new Car("WA-KA","RED"));
         p.park(new Truck("WA-KA","RED"));
-        p.getDisplay().freeCount( VehicleType.CAR);
-        p.getDisplay().freeCount(VehicleType.TRUCK);
+        p.getDisplay().freeCount( VehicleType.CAR, p.getAllFloorsInParkingArea());
+        p.getDisplay().freeCount(VehicleType.TRUCK,p.getAllFloorsInParkingArea());
     }
 
     @Test
     void freeSlotTest(){
-        p.getDisplay().freeSlots(VehicleType.CAR);
+        p.getDisplay().freeSlots(VehicleType.CAR, p.getAllFloorsInParkingArea());
 
     }
     @Test
@@ -38,8 +38,8 @@ class DisplayTest {
         p.park(new Car("Raaj","white"));
         p.park(new Car("Raaj","white"));
         p.park(new Truck("WEGRG","RED"));
-        p.getDisplay().occupiedSlots(p,VehicleType.CAR);
-        p.getDisplay().occupiedSlots(p,VehicleType.TRUCK);
+        p.getDisplay().occupiedSlots(VehicleType.CAR, p.getAllFloorsInParkingArea());
+        p.getDisplay().occupiedSlots(VehicleType.TRUCK,p.getAllFloorsInParkingArea());
 
     }
 

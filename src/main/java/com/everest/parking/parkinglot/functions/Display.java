@@ -1,6 +1,5 @@
 package com.everest.parking.parkinglot.functions;
 
-import com.everest.parking.parkinglot.ParkingLot;
 import com.everest.parking.parkinglot.models.Floor;
 import com.everest.parking.parkinglot.models.Slot;
 import com.everest.parking.vehicle.types.enums.VehicleType;
@@ -11,15 +10,13 @@ import java.util.Objects;
 
 public class Display {
 
-    private final ParkingLot parkingLot;
 
-    public Display(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public Display() {
+
     }
 
-    public void freeCount(VehicleType vehicleType) {
+    public void freeCount(VehicleType vehicleType, Floor[] floors) {
         int counter = 0;
-        Floor[] floors = this.parkingLot.getAllFloorsInParkingArea();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
             for (Slot slot : slots) {
@@ -32,8 +29,7 @@ public class Display {
         }
     }
 
-    public void freeSlots(VehicleType vehicleType) {
-        Floor[] floors = this.parkingLot.getAllFloorsInParkingArea();
+    public void freeSlots(VehicleType vehicleType, Floor[] floors) {
         List<Integer> freeSlots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
@@ -48,8 +44,7 @@ public class Display {
         }
     }
 
-    public void occupiedSlots(ParkingLot parkingLot, VehicleType vehicleType) {
-        Floor[] floors = parkingLot.getAllFloorsInParkingArea();
+    public void occupiedSlots(VehicleType vehicleType, Floor[] floors) {
         List<Integer> occupiedSLots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();

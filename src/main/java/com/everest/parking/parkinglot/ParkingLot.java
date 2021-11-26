@@ -22,24 +22,25 @@ public class ParkingLot extends ParkingArea {
         if (parkingLotInstance == null) {
             parkingLotInstance = new ParkingLot(id, numberOfFloors, numberOfSlotsPerFloor);
             driver = new Driver();
-            display = new Display(parkingLotInstance);
+            display = new Display();
             ticket = new Ticket();
-            System.out.println("Created parking lot with " + numberOfFloors + " floors and " + numberOfSlotsPerFloor + " slots per floor");
+            String created = "Created parking lot with " + numberOfFloors + " floors and " + numberOfSlotsPerFloor + " slots per floor";
+            System.out.println(created);
         }
         return parkingLotInstance;
     }
 
 
     public void park(Vehicle vehicle) {
-       int[] place = driver.parkVehicle(vehicle,getAllSlotsInAllFloors(),getNumberOfSlotsPerFloor());
-       ticket.print(place,getParkingLotId(),getNumberOfSlotsPerFloor(),getNumberOfFloors());
+        int[] place = driver.parkVehicle(vehicle, getAllSlotsInAllFloors(), getNumberOfSlotsPerFloor());
+        ticket.print(place, getParkingLotId(), getNumberOfSlotsPerFloor(), getNumberOfFloors());
     }
 
     public void unPark(int floorNumber, int slotNumber) {
-        driver.unParkVehicle(getSpecificSLotInSpecificFloor(floorNumber,slotNumber));
+        driver.unParkVehicle(getSpecificSLotInSpecificFloor(floorNumber, slotNumber));
     }
 
-    public Display getDisplay(Display) {
+    public Display getDisplay() {
         return display;
     }
 
