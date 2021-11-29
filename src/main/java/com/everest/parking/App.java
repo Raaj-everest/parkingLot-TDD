@@ -12,6 +12,9 @@ public class App {
 
     public static void main(String[] args) {
         boolean exit=false;
+        System.out.println("|=====================================================================|");
+        System.out.println("|===================      EVEREST PARKING LOT     ====================|");
+        System.out.println("|=====================================================================|");
         do {
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
@@ -20,14 +23,12 @@ public class App {
                 exit = true;
                 System.out.println("you terminated the programme");
                 sc.close();
-            }else if(system==null){
-                if (newStr.contains("CREATE_PARKING_LOT")) {
-                    system = InputHandler.buildParkingLot(newStr);
-                } else {
-                    System.out.println("Create a ParkingLot to continue");
+            }else {
+                if(system==null){
+                    system=InputHandler.createParkingLot(newStr);
+                }else {
+                    InputHandler.doWork(newStr, system);
                 }
-            }else{
-
             }
         } while (!exit);
     }

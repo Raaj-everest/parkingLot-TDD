@@ -1,11 +1,25 @@
 package com.everest.parking.vehicle;
 
-public interface Vehicle {
 
-  String getRegistrationNumber();
+import com.everest.parking.vehicle.types.enums.VehicleType;
 
-  String getTypeOfVehicle();
+public class Vehicle {
+  private final String registrationNumber;
+  private final String colour;
+  private final String typeOfVehicle;
 
-  String getColourOfVehicle();
-
+  public Vehicle (VehicleType type, String registrationNumber, String Colour ){
+    this.registrationNumber=registrationNumber;
+    this.colour = Colour;
+    this.typeOfVehicle=type.toString();
+  }
+  public String getColourOfVehicle() {
+    return colour;
+  }
+  public String getRegistrationNumber() {
+    return registrationNumber;
+  }
+  public String getTypeOfVehicle() {
+    return typeOfVehicle;
+  }
 }
