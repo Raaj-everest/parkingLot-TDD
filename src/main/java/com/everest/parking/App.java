@@ -4,11 +4,10 @@ import com.everest.parking.InputHandler.InputHandler;
 import com.everest.parking.parkinglot.ParkingLot;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public static ParkingLot system;
+    public static ParkingLot parkingLot;
 
     public static void main(String[] args) {
         boolean exit=false;
@@ -18,16 +17,16 @@ public class App {
         do {
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
-            ArrayList<String> input = (ArrayList<String>) InputHandler.inputFormat(str);
-            if(input.contains("EXIT")) {
+            ArrayList<String> input = (ArrayList<String>) InputHandler.processInput(str);
+            if(input.equals("EXIT")) {
                 exit = true;
                 System.out.println("you terminated the programme");
                 sc.close();
             }else {
-                if(system==null){
-                    system=InputHandler.createParkingLot(input);
+                if(parkingLot ==null){
+                    parkingLot =InputHandler.createParkingLot(input);
                 }else {
-                    InputHandler.doWork(input, system);
+                    InputHandler.doWork(input, parkingLot);
                 }
             }
         } while (!exit);

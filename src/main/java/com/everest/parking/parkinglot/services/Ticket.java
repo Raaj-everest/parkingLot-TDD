@@ -2,7 +2,7 @@ package com.everest.parking.parkinglot.services;
 
 public class Ticket {
 
-    public void print(int[] place, String parkingLotId, int numberOfSlotsPerFloor, int numberOfFloors) {
+    public void generateTicket(int[] place, String parkingLotId, int numberOfSlotsPerFloor, int numberOfFloors) {
         if(place==null){
             System.out.println("Parking Lot Full");
         }else {

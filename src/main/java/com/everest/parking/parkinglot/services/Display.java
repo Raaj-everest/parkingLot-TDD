@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Display {
 
 
-    public void freeCount(VehicleType vehicleType, Floor[] floors) {
+    public void showFreeCount(VehicleType vehicleType, Floor[] floors) {
         int counter = 0;
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
@@ -24,7 +24,7 @@ public class Display {
         }
     }
 
-    public void freeSlots(VehicleType vehicleType, Floor[] floors) {
+    public void showFreeSlots(VehicleType vehicleType, Floor[] floors) {
         List<Integer> freeSlots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();
@@ -39,7 +39,7 @@ public class Display {
         }
     }
 
-    public void occupiedSlots(VehicleType vehicleType, Floor[] floors) {
+    public void showOccupiedSlots(VehicleType vehicleType, Floor[] floors) {
         List<Integer> occupiedSLots = new ArrayList<>();
         for (int i = 0; i < floors.length; i++) {
             Slot[] slots = floors[i].getSlotsList();

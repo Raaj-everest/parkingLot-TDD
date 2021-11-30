@@ -24,7 +24,7 @@ public class ParkingLot extends ParkingArea {
 
     public void park(Vehicle vehicle) {
         int[] place = driver.parkVehicle(vehicle, getAllSlotsInAllFloors(), getNumberOfSlotsPerFloor());
-        ticket.print(place,id, getNumberOfSlotsPerFloor(), getNumberOfFloors());
+        ticket.generateTicket(place,id, getNumberOfSlotsPerFloor(), getNumberOfFloors());
     }
 
     public void unPark(int floorNumber, int slotNumber) {
@@ -33,13 +33,13 @@ public class ParkingLot extends ParkingArea {
 
     public void display(DisplayType displayType, VehicleType vehicleType) {
         if (displayType.equals(DisplayType.FREE_COUNT)) {
-            display.freeCount(vehicleType, getAllFloorsInParkingArea());
+            display.showFreeCount(vehicleType, getAllFloorsInParkingArea());
         }
         if (displayType.equals(DisplayType.FREE_SLOTS)) {
-            display.freeSlots(vehicleType, getAllFloorsInParkingArea());
+            display.showFreeSlots(vehicleType, getAllFloorsInParkingArea());
         }
         if (displayType.equals(DisplayType.OCCUPIED_SLOTS)) {
-            display.occupiedSlots(vehicleType, getAllFloorsInParkingArea());
+            display.showOccupiedSlots(vehicleType, getAllFloorsInParkingArea());
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class InputHandler {
 
-    public static ArrayList<String> inputFormat(String str) {
+    public static ArrayList<String> processInput(String str) {
         str = str.toUpperCase();
         str = str.trim();
         String[] newStr = str.split("\\s+");
@@ -42,9 +42,9 @@ public class InputHandler {
         if (input.contains("DISPLAY")) {
             display(input, parkingLot);
         } else if (input.contains("PARK_VEHICLE")) {
-            park(input, parkingLot);
+            parking(input, parkingLot);
         } else if (input.contains("UNPARK_VEHICLE")) {
-            unPark(input, parkingLot);
+            unParking(input, parkingLot);
         } else if (input.contains("HELP")) {
             parkingLot.help();
         } else {
@@ -65,7 +65,7 @@ public class InputHandler {
         }
     }
 
-    private static void park(ArrayList<String> input, ParkingLot parkingLot) {
+    private static void parking(ArrayList<String> input, ParkingLot parkingLot) {
         try {
             String vehicleType = input.get(1);
             String registrationNumber = input.get(2);
@@ -77,7 +77,7 @@ public class InputHandler {
         }
     }
 
-    private static void unPark(ArrayList<String> input, ParkingLot parkingLot) {
+    private static void unParking(ArrayList<String> input, ParkingLot parkingLot) {
         String registrationNumber = input.get(1);
         String[] parts = registrationNumber.split("_");
         try {
