@@ -1,6 +1,7 @@
 package com.everest.parking;
 
-import com.everest.parking.InputHandler.InputHandler;
+import com.everest.parking.Controller.InputHandler;
+import com.everest.parking.Controller.ParkinglotController;
 import com.everest.parking.parkinglot.ParkingLot;
 
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ public class App {
                 sc.close();
             }else {
                 if(parkingLot ==null){
-                    parkingLot =InputHandler.createParkingLot(input);
+                    parkingLot = ParkinglotController.createParkingLot(input);
                 }else {
-                    InputHandler.doWork(input, parkingLot);
+                    ParkinglotController.operateParkinglot(input, parkingLot);
                 }
             }
         } while (!exit);

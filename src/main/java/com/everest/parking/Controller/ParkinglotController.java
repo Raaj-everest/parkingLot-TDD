@@ -1,4 +1,4 @@
-package com.everest.parking.InputHandler;
+package com.everest.parking.Controller;
 
 import com.everest.parking.parkinglot.ParkingLot;
 import com.everest.parking.parkinglot.models.enums.DisplayType;
@@ -6,19 +6,9 @@ import com.everest.parking.vehicle.Vehicle;
 import com.everest.parking.vehicle.types.enums.VehicleType;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class InputHandler {
-
-    public static ArrayList<String> processInput(String str) {
-        str = str.toUpperCase();
-        str = str.trim();
-        String[] newStr = str.split("\\s+");
-        ArrayList<String> list = new ArrayList<>();
-        Collections.addAll(list, newStr);
-        return list;
-    }
+public class ParkinglotController {
 
     public static ParkingLot createParkingLot(List<String> input) {
         ParkingLot parkingLot = null;
@@ -38,19 +28,25 @@ public class InputHandler {
         return parkingLot;
     }
 
-    public static void doWork(ArrayList<String> input, ParkingLot parkingLot) {
-        if (input.contains("DISPLAY")) {
-            display(input, parkingLot);
-        } else if (input.contains("PARK_VEHICLE")) {
-            parking(input, parkingLot);
-        } else if (input.contains("UNPARK_VEHICLE")) {
-            unParking(input, parkingLot);
-        } else if (input.contains("HELP")) {
-            parkingLot.help();
-        } else {
-            System.err.println("INVALID COMMAND : " + input);
-            System.out.println("try help to know about the programme");
+    public static void operateParkinglot(ArrayList<String> input, ParkingLot parkingLot) {
+        switch (input.get(0)) {
+            case "DISPLAY":
+                display(input, parkingLot);
+                break;
+            case "PARK_VEHICLE":
+                parking(input, parkingLot);
+                break;
+            case "UNPARK_VEHICLE":
+                unParking(input, parkingLot);
+                break;
+            case "HELP":
+                parkingLot.help();
+                break;
+            default:
+                System.out.println("try help to know about the programme");
+                throw new IllegalStateException("Unexpected command: " + input.get(0));
         }
+
     }
 
     private static void display(ArrayList<String> input, ParkingLot parkingLot) {
