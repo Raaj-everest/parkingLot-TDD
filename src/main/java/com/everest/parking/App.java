@@ -18,16 +18,16 @@ public class App {
         do {
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
-            ArrayList<String> newStr = (ArrayList<String>) InputHandler.input(str);
-            if(newStr.contains("EXIT")) {
+            ArrayList<String> input = (ArrayList<String>) InputHandler.inputFormat(str);
+            if(input.contains("EXIT")) {
                 exit = true;
                 System.out.println("you terminated the programme");
                 sc.close();
             }else {
                 if(system==null){
-                    system=InputHandler.createParkingLot(newStr);
+                    system=InputHandler.createParkingLot(input);
                 }else {
-                    InputHandler.doWork(newStr, system);
+                    InputHandler.doWork(input, system);
                 }
             }
         } while (!exit);
