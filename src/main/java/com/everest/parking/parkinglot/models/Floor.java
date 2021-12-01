@@ -18,20 +18,26 @@ public class Floor {
     }
 
     private void makeBikeSLots() {
-        for (int i = 1; i < 3; i++) {
-            slotsList[i] = new Slot(SlotType.BIKE);
+        int startingOfBikeSlots =1;
+        int endingOfBikeSlots=3;
+        for (int bikeSlot =startingOfBikeSlots ; bikeSlot < endingOfBikeSlots; bikeSlot++) {
+            slotsList[bikeSlot] = new Slot(SlotType.BIKE);
         }
     }
 
     private void makeCarSlots() {
-        for (int i = 3; i < slotsList.length; i++) {
-            slotsList[i] = new Slot(SlotType.CAR);
+        int startingOfCarSlots =3;
+        int endingOfCarSlots=slotsList.length;
+        for (int carSlot = startingOfCarSlots; carSlot < endingOfCarSlots; carSlot++) {
+            slotsList[carSlot] = new Slot(SlotType.CAR);
         }
     }
 
     private void makeTruckSlots() {
-        for (int i = 0; i < 1; i++) {
-            slotsList[i] = new Slot(SlotType.TRUCK);
+        int startingOfTruckSlots =0;
+        int endingOfTruckSlots=1;
+        for (int truckSlot = startingOfTruckSlots; truckSlot < endingOfTruckSlots; truckSlot++) {
+            slotsList[truckSlot] = new Slot(SlotType.TRUCK);
         }
     }
 
