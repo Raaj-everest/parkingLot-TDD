@@ -9,20 +9,20 @@ public class Driver {
 
     public int[] parkVehicle(Vehicle vehicle, List<Slot> allSlots,int numberOfSlotsPerFloor ) {
         int count = 0;
-        int[] place = new int[2];
+        int[] whereVehicleIsParked = new int[2];
         for (Slot slot : allSlots) {
             count++;
             if (!slot.getIsOccupied()) {
                 slot.parkVehicleInSlot(vehicle);
                 if (slot.getIsOccupied()) {
-                    place[0] = ((count-1) / numberOfSlotsPerFloor);
-                    place[1]= ((count-1) - (place[0] * numberOfSlotsPerFloor));
-                    return place;
+                    whereVehicleIsParked[0] = ((count-1) / numberOfSlotsPerFloor);
+                    whereVehicleIsParked[1]= ((count-1) - (whereVehicleIsParked[0] * numberOfSlotsPerFloor));
+                    return whereVehicleIsParked;
                 }
             }
         }
 
-        return null;
+        return new int[]{-1, -1};
     }
     public void unParkVehicle(Slot slot){
         if (slot.getIsOccupied()) {

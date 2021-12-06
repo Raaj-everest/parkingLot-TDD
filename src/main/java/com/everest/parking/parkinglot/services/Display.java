@@ -9,7 +9,6 @@ import java.util.Objects;
 
 public class Display {
 
-
     public void showFreeCount(VehicleType vehicleType, Floor[] floors) {
         int counter = 0;
         for (int i = 0; i < floors.length; i++) {

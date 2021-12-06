@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ParkingArea {
+
     private final Floor[] floors;
 
     public ParkingArea(int numberOfFloors, int numberOfSlotsPerFloor) {

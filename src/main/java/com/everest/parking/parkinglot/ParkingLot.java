@@ -23,8 +23,8 @@ public class ParkingLot extends ParkingArea {
     }
 
     public void park(Vehicle vehicle) {
-        int[] place = driver.parkVehicle(vehicle, getAllSlotsInAllFloors(), getNumberOfSlotsPerFloor());
-        ticket.generateTicket(place,id, getNumberOfSlotsPerFloor(), getNumberOfFloors());
+        int[] whereVehicleParked = driver.parkVehicle(vehicle, getAllSlotsInAllFloors(), getNumberOfSlotsPerFloor());
+        ticket.generateTicket(whereVehicleParked,id, getNumberOfSlotsPerFloor(), getNumberOfFloors());
     }
 
     public void unPark(int floorNumber, int slotNumber) {
